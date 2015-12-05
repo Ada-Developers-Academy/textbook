@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+<title>Ada Developers Academy</title>
+<script src='https://use.typekit.net/iel2sql.js'></script>
+<script>
+  try{Typekit.load({ async: false });}catch(e){}
+</script>
+<link href="../../stylesheets/all-772e4adb.css" rel="stylesheet" />
+<script src="../../javascripts/all-da39a3ee.js"></script>
+</head>
+<body>
+<header></header>
+<main>
+<div class='toc'><h1 class='toc-title'>Table of Contents</h1>
+<h2><a href="/textbook/">Home</a></h2>
+<h2 class='toc-unit'>Ruby Fundamentals & Programming Concepts</h2>
+<ol class='toc-chapters'></ol>
+<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-101">Ruby 101</a></li>
+<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-102">Ruby 102</a></li>
+<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-103">Ruby 103</a></li>
+<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-104">Ruby 104</a></li>
+</div>
+<div class='content'>
+<div class='breadcrumbs'>Ruby Fundamentals & Programming Concepts
+>
+Ruby 104
+</div>
+<div class="chapter"><h1 id="ruby-104">￼Ruby 104</h1>
+
+<h2 id="comparisons">Comparisons</h2>
+<p>Equality comparisons can be used on all objects, including <code>Strings</code>, <code>Integers</code>, <code>Floats</code>, <code>Arrays</code>, <code>Hashes</code>, etc:
+- <code>==</code> (equal to?)
+- <code>!=</code> (not equal to?)</p>
+
+<p>Numeric comparisons are used primarily on <code>Integers</code> and <code>Floats</code>:
+- <code>&gt;</code>  (greater than?)
+- <code>&lt;</code>  (less than?)
+- <code>&gt;=</code> (greater than or equal to?)
+- <code>&lt;=</code> (less than or equal to?)</p>
+
+<p>The “result” of a comparison is known as a boolean. There are only two kinds of boolean object:
+- <code>true</code>
+- <code>false</code></p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<span class="c1"># =&gt; true</span>
+
+<span class="s2">"hello"</span> <span class="o">==</span> <span class="s2">"hello"</span>
+<span class="c1"># =&gt; true</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<h2 id="flow-control">Flow Control</h2>
+
+<h3 id="conditionals">Conditionals</h3>
+<p><code>if</code> and <code>else</code> allow you to control the flow of your program. This means that they allow you to define which lines of code will execute, and which will be skipped.</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="k">if</span> <span class="n">boolean_value</span>
+  <span class="n">code</span>
+<span class="k">end</span>
+
+<span class="n">additional_code</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>When you use an <code>if</code>, the <code>code</code> that follows it (until the <code>end</code>) will only be executed <em>if</em> the <code>boolean_value</code> is <code>true</code>. Additionally, you may add <code>else</code> before the <code>end</code>:</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre></td><td class="code"><pre><span class="k">if</span> <span class="n">boolean_value</span>
+  <span class="n">code</span>
+<span class="k">else</span>
+  <span class="n">other_code</span>
+<span class="k">end</span>
+
+<span class="n">additional_code</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>In this case, when <code>boolean_value</code> is <code>false</code>, then <code>other_code</code> will be executed. Otherwise, it will be skipped. When you have an <code>if</code> and an <code>else</code> only one or the other of <code>code</code> or <code>other_code</code> will be executed, and that is determined by the value of <code>boolean_value</code>.</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td><td class="code"><pre><span class="nb">puts</span> <span class="s2">"Hey! What’s your name?"</span>
+<span class="n">response</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+
+<span class="n">is_my_name</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">downcase</span> <span class="o">==</span> <span class="s2">"computer"</span>
+<span class="k">if</span> <span class="n">is_my_name</span>
+  <span class="nb">puts</span> <span class="s2">"Weird, that's my name too. Small world!"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"Wacky name!"</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">"Well, it was nice to meet you </span><span class="si">#{</span><span class="n">response</span><span class="si">}</span><span class="s2">."</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5</pre></td><td class="code"><pre><span class="k">if</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">0</span>
+  <span class="c1"># do something</span>
+<span class="k">else</span>
+  <span class="c1"># do something different</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<h3 id="negating-comparisons">Negating Comparisons</h3>
+<p>Ruby has an <code>unless</code> keyword that works just like <code>if</code>, but in the reverse way.</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre></td><td class="code"><pre><span class="nb">puts</span> <span class="s2">"What is your favorite animal?"</span>
+<span class="n">fav_animal</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+
+<span class="k">if</span> <span class="n">fav_animal</span><span class="p">.</span><span class="nf">downcase</span> <span class="o">==</span> <span class="s2">"camel"</span>
+  <span class="nb">puts</span> <span class="s2">"I also love camels!"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"That's a great animal, but I love camels the most."</span>
+<span class="k">end</span>
+
+<span class="c1"># The following code works identically to the above</span>
+<span class="k">unless</span> <span class="n">fav_animal</span><span class="p">.</span><span class="nf">downcase</span> <span class="o">==</span> <span class="s2">"camel"</span>
+  <span class="nb">puts</span> <span class="s2">"That's a great animal, but I love camels the most."</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"I also love camels!"</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>The <code>if</code> block executes if the <em>conditional</em> evaluates as <code>true</code>. The <code>unless</code> block executes if the <em>conditional</em> evaluates as <code>false</code>.</p>
+
+<p>Another way to “negate” a conditional is to use the <code>!</code> (not) operator. This should be placed just before a boolean value, or a comparison. When combined with a comparison the comparison should be enclosed in parentheses:</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</pre></td><td class="code"><pre><span class="nb">puts</span> <span class="s2">"What day of the week is it?"</span>
+<span class="n">day_of_week</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+
+<span class="nb">puts</span> <span class="s2">"What did you have for lunch today?"</span>
+<span class="n">lunch</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+
+<span class="k">if</span> <span class="n">day_of_week</span><span class="p">.</span><span class="nf">downcase</span> <span class="o">==</span> <span class="s2">"tuesday"</span>
+  <span class="k">if</span> <span class="o">!</span><span class="p">(</span><span class="n">lunch</span> <span class="o">==</span> <span class="s2">"tacos"</span><span class="p">)</span>
+    <span class="nb">puts</span> <span class="s2">"Taco Tuesdays are my favorite, though!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<h3 id="compound-conditions">Compound Conditions</h3>
+<p>Comparisons are often combined. Combinations can take one of two forms, <em>and</em> and <em>or</em>. When you combine with <code>and</code>, <em>both</em> comparisons must be <code>true</code> for the entire combination to be <code>true</code>. By combining with <code>or</code>, when <em>either</em> of the comparisons are <code>true</code>, the entire combination is <code>true</code>:
+- <code>&amp;&amp;</code> (and)
+- <code>||</code> (or)</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre></td><td class="code"><pre><span class="nb">puts</span> <span class="s2">"What is your first name?"</span>
+<span class="n">first_name</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+<span class="nb">puts</span> <span class="s2">"What is your last name?"</span>
+<span class="n">last_name</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+
+<span class="k">if</span> <span class="n">first_name</span><span class="p">.</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="mi">8</span>
+  <span class="k">if</span> <span class="n">last_name</span><span class="p">.</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="mi">10</span>
+    <span class="nb">puts</span> <span class="s2">"Your name is considerable!"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># This is the same as the above</span>
+<span class="k">if</span> <span class="n">first_name</span><span class="p">.</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="mi">8</span> <span class="o">&amp;&amp;</span> <span class="n">last_name</span><span class="p">.</span><span class="nf">length</span> <span class="o">&gt;</span> <span class="mi">10</span>
+  <span class="nb">puts</span> <span class="s2">"Your name is considerable!"</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12</pre></td><td class="code"><pre><span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"add"</span>
+  <span class="nb">puts</span> <span class="s2">"We're adding numbers."</span>
+<span class="k">end</span>
+
+<span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"+"</span>
+  <span class="nb">puts</span> <span class="s2">"We're adding numbers."</span>
+<span class="k">end</span>
+
+<span class="c1"># This is the same as the above</span>
+<span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"add"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"+"</span>
+  <span class="nb">puts</span> <span class="s2">"We're adding numbers."</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<h3 id="complex-conditionals">Complex conditionals</h3>
+<p>The <code>if/else/end</code> code we’ve written above is the standard and simplest form of a conditional. It is possible to extend this form with one or more <code>elsif</code> lines:</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></td><td class="code"><pre><span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"add"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"+"</span>
+  <span class="nb">puts</span> <span class="s2">"We're adding numbers"</span>
+<span class="k">else</span>
+  <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"subtract"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"-"</span>
+    <span class="nb">puts</span> <span class="s2">"We're subtracting numbers"</span>
+  <span class="k">else</span>
+    <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"multiply"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"*"</span>
+      <span class="nb">puts</span> <span class="s2">"We're multiplying numbers"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># This is equivalent to the above</span>
+<span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"add"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"+"</span>
+  <span class="nb">puts</span> <span class="s2">"We're adding numbers"</span>
+<span class="k">elsif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"subtract"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"-"</span>
+  <span class="nb">puts</span> <span class="s2">"We're subtracting numbers"</span>
+<span class="k">elsif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"multiply"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"*"</span>
+  <span class="nb">puts</span> <span class="s2">"We're multiplying numbers"</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>This can be very useful, when you have more than one <code>elsif</code> line, because the indentation, or <em>nesting</em>, can quickly become very deep, and more difficult to understand.</p>
+
+<h3 id="simplifying-really-complex-conditionals">Simplifying really complex conditionals</h3>
+<p>When you have several <code>elsif</code> lines within a single <code>if</code>, there’s a way to write each conditional, with much less repetition:</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15</pre></td><td class="code"><pre><span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"add"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"+"</span>
+  <span class="nb">puts</span> <span class="s2">"We're adding numbers"</span>
+<span class="k">elsif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"subtract"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"-"</span>
+  <span class="nb">puts</span> <span class="s2">"We're subtracting numbers"</span>
+<span class="k">elsif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"multiply"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"*"</span>
+  <span class="nb">puts</span> <span class="s2">"We're multiplying numbers"</span>
+<span class="k">elsif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"divide"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"/"</span>
+  <span class="nb">puts</span> <span class="s2">"We're dividing numbers"</span>
+<span class="k">elsif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"exponify"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"**"</span>
+  <span class="nb">puts</span> <span class="s2">"We're exponentiating numbers"</span>
+<span class="k">elsif</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"sqrt"</span>
+  <span class="nb">puts</span> <span class="s2">"We're finding the square root of a number"</span>
+<span class="k">else</span>
+  <span class="nb">puts</span> <span class="s2">"What do you want from me?!"</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>The above code works, but it’s kinda messy. We can trim it by using the <code>case/when</code> syntax:
+~~~ruby
+case command
+  when “add”, “+”
+    puts “We’re adding numbers”
+  when “subtract”, “-“
+    puts “We’re subtracting numbers”
+  when “multiply”, “*”
+    puts “We’re multiplying numbers”
+  when “divide”, “/”
+    puts “We’re dividing numbers”
+  when “exponify”, “**”
+    puts “We’re exponentiating numbers”
+  when “sqrt”
+    puts “We’re finding the square root of a number”
+  else
+    puts “What do you want from me?!”
+end
+~~~</p>
+
+<h2 id="conditional-loops">Conditional Loops</h2>
+<p>### Wait a <code>while</code>
+Execute the iterator <code>while</code> the condition is true.</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span>
+  <span class="nb">puts</span> <span class="n">i</span>
+  <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>The above code will output the values of i until i is no longer less than 4, resulting in the following output:
+~~~
+0
+1
+2
+3
+~~~</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="n">command</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+
+<span class="k">while</span> <span class="n">command</span> <span class="o">!=</span> <span class="s2">"add"</span> <span class="o">&amp;&amp;</span> <span class="n">command</span> <span class="o">!=</span> <span class="s2">"+"</span>
+  <span class="nb">puts</span> <span class="s2">"Please tell me to add (+)!"</span>
+  <span class="n">command</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">"OMG It's about time!"</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<h3 id="make-it-clearer-by-using-until">Make it clearer by using <code>Until</code></h3>
+<p>Execute the iterator <code>until</code> the condition is true.</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">until</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">4</span>
+   <span class="nb">puts</span> <span class="n">i</span>
+   <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p>The above code will output the values of i until i is equal to 4, resulting in the following (equivalent to the above) output:
+~~~
+0
+1
+2
+3
+~~~</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="n">command</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+
+<span class="k">until</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"add"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"+"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"subtract"</span> <span class="o">||</span> <span class="n">command</span> <span class="o">==</span> <span class="s2">"-"</span>
+  <span class="nb">puts</span> <span class="s2">"Please tell me to add (+) or subtract (-)!"</span>
+  <span class="n">command</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">"OMG It's about time!"</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<h3 id="make-it-clearer-by-using-include">Make it clearer by using <code>include?</code></h3>
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8</pre></td><td class="code"><pre><span class="n">command</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+
+<span class="k">until</span> <span class="p">[</span><span class="s2">"add"</span><span class="p">,</span> <span class="s2">"+"</span><span class="p">,</span> <span class="s2">"subtract"</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">].</span><span class="nf">include?</span> <span class="n">command</span>
+  <span class="nb">puts</span> <span class="s2">"Please tell me to add (+) or subtract (-)!"</span>
+  <span class="n">command</span> <span class="o">=</span> <span class="nb">gets</span><span class="p">.</span><span class="nf">chomp</span>
+<span class="k">end</span>
+
+<span class="nb">puts</span> <span class="s2">"OMG It's about time!"</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+</div>
+</main>
+<footer>
+<div class='breadcrumbs'>Ruby Fundamentals & Programming Concepts
+>
+Ruby 104
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
+<title>Ada Developers Academy</title>
+<script src='https://use.typekit.net/iel2sql.js'></script>
+<script>
+  try{Typekit.load({ async: false });}catch(e){}
+</script>
+<link href="../../stylesheets/all-772e4adb.css" rel="stylesheet" />
+<script src="../../javascripts/all-da39a3ee.js"></script>
+</head>
+<body>
+<header></header>
+<main>
+<div class='toc'><h1 class='toc-title'>Table of Contents</h1>
+<h2><a href="/textbook/">Home</a></h2>
+<h2 class='toc-unit'>Ruby Fundamentals & Programming Concepts</h2>
+<ol class='toc-chapters'></ol>
+<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-101">Ruby 101</a></li>
+<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-102">Ruby 102</a></li>
+<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-103">Ruby 103</a></li>
+<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-104">Ruby 104</a></li>
+</div>
+<div class='content'>
+<div class='breadcrumbs'>Ruby Fundamentals & Programming Concepts
+>
+Ruby 103
+</div>
+<div class="chapter"><h1 id="ruby-103-iterators--blocks">Ruby 103: Iterators &amp; Blocks</h1>
+
+<h2 id="iterators">Iterators</h2>
+
+<p><em>Iteration</em> is the process of programatically interacting with a collection of values, one at a time. We call it “looping” sometimes, and we do a lot of it. Here is a simple loop; fire up irb and give it a try:</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre><span class="mi">10</span><span class="p">.</span><span class="nf">times</span> <span class="p">{</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="nb">puts</span> <span class="n">n</span> <span class="p">}</span> <span class="c1"># So... what happened</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<h4 id="question-what-is-times">Question: What is <code>times</code>?</h4>
+
+<p>We can iterate all kinds of things, but probably the most common and most fun is iterating an <em>Array</em>. They’re especially suited for iteration because they, by default, have a objective order to their elements. Here’s an example of iterating an <em>Array</em> using the <code>each</code> <em>method</em>:</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">10</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+<p>Cool, right? <code>each</code> iterated the <em>Array</em>, starting with the first value, multiplied the value by 10, and spit it out. It knew what to do on each step of the iteration because we provided a <em>block</em> of instructions.</p>
+
+<h3 id="lets-talk-about-blocks">Let’s talk about Blocks…</h3>
+
+<p>Blocks are not a unique features of Ruby, but they’re one that many people talk about (and more people use without realizing it!) What is a block?</p>
+
+<blockquote>
+  <p>A section of code which is grouped together.</p>
+</blockquote>
+
+<p>Zzzzz….</p>
+
+<p>A block is a piece of code that is not executed immediately, but is stored in a variable or passed to a method, and is potentially executed at a later moment in time.</p>
+
+<p>Sound complicated? Let’s look at some Ruby.</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7</pre></td><td class="code"><pre><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># &lt;= this is a block. :)</span>
+<span class="k">end</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">].</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">number</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">number</span> <span class="o">*</span> <span class="mi">100</span> <span class="c1"># &lt;= this is a block too! :D</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<p><code>number * 100</code> is a chunk of code, similar to what would be in a method, but in this case we don’t need to go through all the trouble of creating a method to iterate over some numbers.</p>
+
+<p>Block can be identified by either <code>do ... end</code> or <code>{ }</code>.</p>
+
+<p>Block arguments are defined using a pair of <code>|</code> (pipe) characters. They look like a slide, so I like to say that we slide arguments into the block. For example:</p>
+
+<div class="highlight plaintext"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>[1,2,3].each do |number|
+  puts number # wheeeee! Right down the slide!
+end
+</pre></td></tr></tbody></table>
+</div>
+
+<p><code>number</code> is the defined argument, this means that objects given to the block are going to be assigned to the <code>number</code> variable within the scope of the block.</p>
+
+<h3 id="exercise-walk-through-a-loop">Exercise: Walk Through a Loop:</h3>
+
+<p>It’s very important to understand what’s happening during iteration. The best way to get comfortable with loops is to make a chart showing how values change during iteration. Here’s an example of a loop and it’s corresponding value chart:</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre><span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">100</span><span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">n</span><span class="o">|</span>
+  <span class="nb">puts</span> <span class="n">n</span> <span class="o">*</span> <span class="mi">4</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>loop count</th>
+      <th>value of n</th>
+      <th>output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>11</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>5</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>8</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>100</td>
+      <td>400</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>With a pair, figure out what’s happening on each iteration of the following loop, on paper, using the handy table template:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>loop count</th>
+      <th>value of x</th>
+      <th>value of y</th>
+      <th>output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You’ll need more rows, but you get the idea.</p>
+
+<div class="highlight ruby"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9</pre></td><td class="code"><pre><span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">].</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span>
+  <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">x</span>
+    <span class="nb">puts</span> <span class="n">y</span>
+  <span class="k">else</span>
+    <span class="nb">puts</span> <span class="n">x</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table>
+</div>
+</div>
+
+</div>
+</main>
+<footer>
+<div class='breadcrumbs'>Ruby Fundamentals & Programming Concepts
+>
+Ruby 103
+</div>
+</footer>
+</body>
+</html>

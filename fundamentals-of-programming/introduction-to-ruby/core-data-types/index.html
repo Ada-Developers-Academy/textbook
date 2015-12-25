@@ -3,32 +3,88 @@
 <head>
 <meta charset='utf-8'>
 <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
-<title>Ada Developers Academy</title>
+<title>Core Data Types</title>
 <script src='https://use.typekit.net/iel2sql.js'></script>
 <script>
   try{Typekit.load({ async: false });}catch(e){}
 </script>
-<link href="../../stylesheets/all-772e4adb.css" rel="stylesheet" />
-<script src="../../javascripts/all-da39a3ee.js"></script>
+<link href="../../../stylesheets/all-be69b63e.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script><script src="../../../javascripts/all-780487bd.js"></script>
 </head>
 <body>
-<header></header>
 <main>
-<div class='toc'><h1 class='toc-title'>Table of Contents</h1>
-<h2><a href="/textbook/">Home</a></h2>
-<h2 class='toc-unit'>Ruby Fundamentals & Programming Concepts</h2>
-<ol class='toc-chapters'></ol>
-<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-101">Ruby 101</a></li>
-<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-102">Ruby 102</a></li>
-<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-103">Ruby 103</a></li>
-<li class='toc-chapter'><a href="/textbook/ruby-fundamentals-programming-concepts/ruby-104">Ruby 104</a></li>
+<header class='navigation' role='banner'>
+<div class='navigation-wrapper'>
+<a class="logo" href="//adadevelopersacademy.org">Ada Developers Academy</a>
+<a class='navigation-menu-button' href='javascript:void(0)' id='js-mobile-menu'>Links</a>
+<nav role='navigation'>
+<ul class='navigation-menu show' id='js-navigation-menu'>
+<li class='nav-link'><a href="/textbook/">Home</a></li>
+<li class='nav-link'><a href="/textbook/about">About</a></li>
+<li class='nav-link'><a href="//github.com/Ada-Developers-Academy/">Github</a></li>
+<li class='nav-link'><a href="/textbook/contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<div class='toc sliding-panel-content'><button class='toc-menu' type='button'>Toggle Table of Contents</button>
+<h2 class='toc-title'>Table of Contents</h2>
+<div class='toc-content'>
+<h3 class='toc-unit'>JavaScript</h3>
+<button class='toc-chapter '>Introduction</button>
+<ol class=' toc-lectures'>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/introduction/how-we-got-to-now">How We Got to Now</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/introduction/in-the-browser-on-the-server">In the Browser & On the Server</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/introduction/objects-core-types">Objects & Core Types</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/introduction/exercise-practice-making-objects-functions">Exercise: Practice Making Objects & Functions</a></li>
+</ol>
+<button class='toc-chapter '>Fun with Functions</button>
+<ol class=' toc-lectures'>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/fun-with-functions/expressions-declarations">Expressions & Declarations</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/fun-with-functions/higher-order-functions">Higher Order Functions</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/fun-with-functions/exercise-array-prototype-sort">Exercise: Array.prototype.sort</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/fun-with-functions/closures">Closures</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/fun-with-functions/exercise-make-an-accumulator">Exercise: Make an Accumulator</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/fun-with-functions/objects-inheritance">Objects & Inheritance</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/fun-with-functions/exercise-turducken">Exercise: Turducken</a></li>
+</ol>
+<button class='toc-chapter '>npm & Node</button>
+<ol class=' toc-lectures'>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/npm-node/installation">Installation</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/npm-node/using-npm-and-the-node-repl">Using npm and the Node REPL</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/npm-node/using-require-and-module-">Using `require` and `module`</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/npm-node/the-event-loop-the-what-and-why-of-asynchronous-programming">The Event Loop: The What and Why of Asynchronous Programming</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/npm-node/exercise-your-first-webserver">Exercise: Your First Webserver</a></li>
+</ol>
+<button class='toc-chapter '>Building Web Apps with Node & Express</button>
+<ol class=' toc-lectures'>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/building-web-apps-with-node-express/installing-express">Installing Express</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/building-web-apps-with-node-express/typical-structure-of-an-express-web-application">Typical Structure of an Express Web Application</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/building-web-apps-with-node-express/incorporating-sql-an-exercise-in-asynchronous-patience">Incorporating SQL: An Exercise in Asynchronous Patience</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/javascript/building-web-apps-with-node-express/exercise-port-sinatra-to-express">Exercise: Port Sinatra to Express</a></li>
+</ol>
+<button class='toc-chapter '>Building & Deploying Node APIs</button>
+<ol class=' toc-lectures'>
+</ol>
+<h3 class='toc-unit'>Fundamentals of Programming</h3>
+<button class='toc-chapter is-current'>Introduction to Ruby</button>
+<ol class='is-current toc-lectures'>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/fundamentals-of-programming/introduction-to-ruby/welcome-to-ruby">Welcome to Ruby</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/fundamentals-of-programming/introduction-to-ruby/core-data-types">Core Data Types</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/fundamentals-of-programming/introduction-to-ruby/iterators-blocks">Iterators & Blocks</a></li>
+<li class='toc-lecture'><a class="toc-link" href="/textbook/fundamentals-of-programming/introduction-to-ruby/flow-control-conditionals">Flow Control & Conditionals</a></li>
+</ol>
+</div>
 </div>
 <div class='content'>
-<div class='breadcrumbs'>Ruby Fundamentals & Programming Concepts
->
-Ruby 102
+<div class='breadcrumbs'>
+<a href="/textbook/fundamentals-of-programming">Fundamentals of Programming</a>
+<a href="/textbook/fundamentals-of-programming/introduction-to-ruby">Introduction to Ruby</a>
+<a href="/textbook/fundamentals-of-programming/introduction-to-ruby/core-data-types">Core Data Types</a>
 </div>
-<div class="chapter"><h1 id="ruby-102">Ruby 102</h1>
+
+<div class="lecture"><h1 id="ruby-102-core-data-types">Ruby 102: Core Data Types</h1>
 
 <h2 id="more-of-the-basics">More of the basics</h2>
 <p>We’re going to review some of the basic and most used Object types within Ruby.</p>
@@ -228,12 +284,22 @@ but instead of the indices 0,1,2, we use first_num, greeting, pi.</p>
 </div>
 
 </div>
-</main>
-<footer>
-<div class='breadcrumbs'>Ruby Fundamentals & Programming Concepts
->
-Ruby 102
+<footer role='contentinfo'>
+<div class='breadcrumbs'>
+<a href="/textbook/fundamentals-of-programming">Fundamentals of Programming</a>
+<a href="/textbook/fundamentals-of-programming/introduction-to-ruby">Introduction to Ruby</a>
+<a href="/textbook/fundamentals-of-programming/introduction-to-ruby/core-data-types">Core Data Types</a>
+</div>
+
+<div class='copyright'>
+&copy; 2015
+<a href="//github.com/Ada-Developers-Academy/textbook/">Released under the MIT License</a>
+by
+<a href="//adadevelopersacademy.org">Ada Developers Academy</a>
 </div>
 </footer>
+
+</main>
+<div class='toc-fade'></div>
 </body>
 </html>
